@@ -1,0 +1,27 @@
+{
+  "name": "casino-site-generator",
+  "version": "1.0.0",
+  "description": "Automated social casino website generator",
+  "main": "casino-generator.js",
+  "bin": {
+    "casino-generator": "./casino-generator.js"
+  },
+  "scripts": {
+    "start": "node casino-generator.js",
+    "generate": "node casino-generator.js"
+  },
+  "keywords": [
+    "casino",
+    "generator",
+    "automation",
+    "website",
+    "social-casino"
+  ],
+  "author": "Casino Generator",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
