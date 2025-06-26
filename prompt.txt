@@ -1,7 +1,19 @@
 # Social Casino Website Generation Prompt
 
-## Overview
-Generate a unique social casino website with varied layouts, styling approaches, and technical implementations. Each generation should produce a distinctly different website while maintaining professional quality and functionality.
+## Website Structure
+
+The website should consist of exactly these pages:
+
+1. **index.html** - Homepage
+2. **games.html** - Games listing page
+3. **about.html** - About us page
+4. **contact.html** - Contact us page
+5. **terms.html** - Terms & Conditions page
+6. **privacy.html** - Privacy Policy page
+7. **cookies.html** - Cookie Policy page
+8. **responsible-gaming.html** - Responsible Social Gaming page
+
+No additional pages should be created. All internal links should point to these pages only.
 
 ## CSS Framework Options
 Randomly select one:
@@ -19,6 +31,29 @@ Randomly select one:
 ## Page Templates
 
 ### 1. Homepage Template
+
+**Complete Structure:** Navigation → Hero Section → Featured Games Section → New Games Section → About/Welcome Section → Footer
+
+#### Navigation Variations:
+1. **Traditional Top Bar** - Logo left, menu right
+   - Links: Home, Games, About Us, Contact
+   - Footer links: Terms, Privacy, Cookies, Responsible Gaming
+2. **Centered Logo** - Split navigation
+   - Main pages split around logo
+   - Legal links in footer only
+3. **Sidebar Navigation** - Collapsible side menu
+   - All pages listed vertically
+   - Grouped by type (main/legal)
+   - Game categories as sub-menu
+4. **Sticky/Fixed Header** - Shrinks on scroll
+   - Primary navigation visible
+   - Secondary legal links in footer
+   - Search bar integration
+5. **Mega Menu** - Dropdown with sections
+   - Games dropdown shows categories/providers
+   - About dropdown includes Contact
+   - Legal links in footer
+   - Featured games preview in dropdown
 
 #### Hero Section Variations:
 1. **Full-screen Background Image**
@@ -46,21 +81,74 @@ Randomly select one:
    - Mouse-follow effects
    - Particle.js background
 
-#### Featured Games Section Variations:
-1. **Card Grid** - Square cards with hover effects
-2. **Carousel Slider** - Horizontal scrolling with arrows
-3. **Masonry Layout** - Pinterest-style varied heights
-4. **List View** - Horizontal rows with game info
-5. **Hexagonal Grid** - Honeycomb pattern layout
+#### Featured Games Section Variations (5 Games via API):
+**Data Source**: Randomly select 5 published games from SlotsLaunch API
+```javascript
+// Fetch all games, filter published=1, randomize, select 5
+// Store thumbnails locally as /images/games/{slug}-{id}.jpg
+```
 
-#### Navigation Variations:
-1. **Traditional Top Bar** - Logo left, menu right
-2. **Centered Logo** - Split navigation
-3. **Sidebar Navigation** - Collapsible side menu
-4. **Sticky/Fixed Header** - Shrinks on scroll
-5. **Mega Menu** - Dropdown with game categories
+1. **Card Grid** - 5 square cards with hover effects
+2. **Carousel Slider** - 5 games with horizontal scrolling arrows
+3. **Masonry Layout** - 5 games in Pinterest-style varied heights
+4. **List View** - 5 horizontal rows with game info
+5. **Hexagonal Grid** - 5 games in honeycomb pattern layout
 
-### 2. Games Listing Template
+#### New Games Section Variations (5 Games via API):
+**Data Source**: 5 most recent games sorted by updated_at descending
+```javascript
+// API call with order_by=updated_at&order=desc&per_page=5
+// Exclude any games already shown in Featured section
+```
+
+1. **Ribbon Banner** - 5 games horizontal scroll with "NEW" badges
+2. **Spotlight Cards** - 5 large featured new game cards
+3. **Ticker Style** - 5 animated scrolling new releases
+4. **Grid with Dates** - 5 games showing "Added Today/This Week"
+5. **Timeline Layout** - 5 games in vertical timeline of recent additions
+
+#### About/Welcome Section Variations:
+1. **Text Block with Icons** - Features list with casino icons
+2. **Video Introduction** - Embedded welcome video with text
+3. **Statistics Counter** - Animated numbers (games, players, wins)
+4. **Testimonial Carousel** - Player reviews and ratings
+5. **Interactive Features** - Hover cards explaining benefits
+
+#### Footer Variations:
+1. **Multi-Column Mega Footer**
+   - Links organized in 4-5 columns
+   - Newsletter signup
+   - Social media icons
+   - Payment/security badges
+
+2. **Minimal Centered**
+   - Single row of important links
+   - Copyright centered below
+   - Compact social icons
+
+3. **Accordion Mobile-First**
+   - Collapsible sections on mobile
+   - Expanded columns on desktop
+   - App download buttons
+
+4. **Map-Style Footer**
+   - Visual sitemap layout
+   - Game categories highlighted
+   - Contact info prominent
+
+5. **Dark Full-Width**
+   - Dark background with accent colors
+   - Logo and tagline repeated
+   - Legal links in small print
+   - Language/currency selectors
+
+### 2. Games Listing Template (games.html)
+
+**Data Source**: Paginated API call with 20-50 games per page
+```javascript
+// API: ?published=1&page={page}&per_page={20-50}
+// Include search and filter functionality
+```
 
 #### Layout Variations:
 1. **Grid View** (3, 4, or 5 columns)
@@ -70,38 +158,85 @@ Randomly select one:
 5. **Isotope/Masonry** (filterable grid)
 
 #### Filter/Sort Variations:
-1. **Sidebar Filters** - Checkboxes and sliders
-2. **Top Bar Filters** - Dropdown menus
-3. **Tag Cloud** - Clickable category tags
-4. **Tab Navigation** - Category tabs
+1. **Sidebar Filters** - Provider, type, themes, features
+2. **Top Bar Filters** - Dropdown menus for categories
+3. **Tag Cloud** - Clickable theme/type tags
+4. **Tab Navigation** - Category tabs (Slots, Table Games, etc.)
 5. **Search Bar Focus** - Prominent search with auto-suggest
 
-### 3. Individual Game Template
+### 3. Individual Game Template (game.html - Dynamic)
+
+**Route Pattern**: `/game.html?slug={game-slug}` or `/games/{game-slug}`
+**Data Source**: Find game by slug from API response
 
 #### Layout Variations:
-1. **Centered Game** - Game in middle, info below
-2. **Sidebar Info** - Game left, details right
-3. **Tabbed Interface** - Game/Info/Related in tabs
-4. **Fullscreen Focus** - Minimal UI, fullscreen button
-5. **Theater Mode** - Dark background, spotlight on game
+1. **Centered Game** 
+   - Game iframe (100% width, 600px height) in middle
+   - Game info below (RTP, volatility, paylines)
+   - Related games carousel at bottom
 
-### 4. About/Contact Templates
+2. **Sidebar Info**
+   - Game iframe left (70% width)
+   - Game details sidebar right (30% width)
+   - Sticky game info on scroll
+
+3. **Tabbed Interface**
+   - Tabs: Play | Info | Features | Similar Games
+   - Game iframe in Play tab
+   - Detailed information in other tabs
+
+4. **Fullscreen Focus**
+   - Minimal UI with fullscreen toggle
+   - Game info in collapsible panel
+   - Dark theater mode option
+
+5. **Hero Style**
+   - Large hero banner with game art
+   - Play button to reveal iframe below
+   - Game details in accordion sections
+
+#### Game Page Elements:
+- Game iframe with SlotsLaunch token
+- Fullscreen toggle button
+- Game metadata (provider, RTP, volatility, etc.)
+- Features list (Megaways, Bonus Buy, etc.)
+- Related games (same provider or theme)
+- Back to games button
+
+### 4. About Page Template (about.html)
 
 #### Layout Variations:
-1. **Timeline Style** - Company history
-2. **Team Grid** - Photo cards of team
-3. **Split Screen** - Text/Image sections
-4. **Accordion FAQ** - Expandable sections
-5. **Video Background** - About video with overlay
+1. **Timeline Style** - Company history with milestones
+2. **Team Grid** - Photo cards of team members
+3. **Split Screen** - Text/Image alternating sections
+4. **Story Format** - Narrative with images
+5. **Video Background** - About video with text overlay
 
-### 5. Legal Pages Template
+### 5. Contact Page Template (contact.html)
+
+#### Layout Variations:
+1. **Contact Form** - Full form with fields
+2. **Email Display** - Click to email with contact info cards
+3. **Split Layout** - Form left, info right
+4. **FAQ + Contact** - Common questions with contact below
+5. **Map Integration** - Location map with contact details
+
+### 6. Legal Pages Templates
+
+**Pages to create:**
+- Terms & Conditions (terms.html)
+- Privacy Policy (privacy.html)
+- Cookie Policy (cookies.html)
+- Responsible Social Gaming (responsible-gaming.html)
 
 #### Layout Variations:
 1. **Sidebar TOC** - Sticky table of contents
 2. **Accordion Sections** - Collapsible chapters
 3. **Single Column** - Simple scrolling
-4. **Tab Navigation** - Different policies in tabs
+4. **Tab Navigation** - Different sections in tabs (within same page)
 5. **Floating TOC** - Right-side mini-map
+
+Each legal page should maintain consistent styling but can have unique content structure appropriate to its purpose.
 
 ## Uniqueness Strategies
 
@@ -157,7 +292,7 @@ Randomly choose:
 
 #### Site Names (randomly generate):
 - [Adjective] + [Casino Term] + Casino/Games
-- Examples: "Lucky Spin Casino", "Golden Dice Games", "Royal Flush Casino"
+- Examples: "Lucky Spin Casino", "Golden Dice Games", "Royal Flush Casino", "Diamond Slots Club", "Vegas Dreams Casino"
 
 #### Hero Headlines:
 - "Welcome to [Site Name] - Play Free Casino Games!"
@@ -165,11 +300,20 @@ Randomly choose:
 - "Your #1 Destination for Social Casino Fun"
 - "Play, Win, Enjoy - No Download Required"
 - "Discover 100+ Free Casino Games"
+- "Spin, Play, Win - All for Fun!"
+- "The Ultimate Social Casino Experience"
 
 #### CTA Button Text:
 - "Play Now", "Start Playing", "Join the Fun"
 - "Explore Games", "Browse Collection", "View All Games"
 - "Get Started", "Play for Free", "Try Your Luck"
+- "Spin Now", "Deal Me In", "Roll the Dice"
+
+#### Game Categories (from API):
+- Use game `type` field for main categories
+- Use `themes` array for sub-categories
+- Common types: Slots, Table Games, Video Poker, etc.
+- Filter games by provider for "Provider Spotlight" sections
 
 ### Technical Variations:
 
@@ -240,25 +384,26 @@ Vary between frameworks or use custom:
 - Tablet: 768px, 820px, 1024px
 - Desktop: 1280px, 1440px, 1920px
 
-## File Structure Variations:
+## File Structure:
+All websites should follow this exact structure:
 ```
-<!-- Single Page -->
-index.html (everything in one file)
-
-<!-- Multi-page -->
-/index.html
-/games.html
-/about.html
-/css/styles.css
-/js/main.js
-
-<!-- Component-based -->
-/index.html
-/components/header.html
-/components/footer.html
-/assets/css/
-/assets/js/
+/index.html              - Homepage
+/games.html              - Games listing page  
+/game.html               - Individual game template (dynamic)
+/about.html              - About us page
+/contact.html            - Contact us page
+/terms.html              - Terms & Conditions page
+/privacy.html            - Privacy Policy page
+/cookies.html            - Cookie Policy page
+/responsible-gaming.html - Responsible Social Gaming page
+/css/                    - Stylesheets (if using external CSS)
+/js/                     - JavaScript files (if using external JS)
+/images/                 - Image assets
+  /games/                - Game thumbnails ({slug}-{id}.jpg)
+/api/                    - Backend proxy endpoints (if implemented)
 ```
+
+Note: CSS and JS can be inline or external based on the chosen variation, but the HTML pages must follow this exact structure.
 
 ## Implementation Notes:
 1. **Always maintain accessibility** - proper ARIA labels, semantic HTML
@@ -266,12 +411,122 @@ index.html (everything in one file)
 3. **Optimize performance** - minimize HTTP requests, compress assets
 4. **Include error states** - 404 pages, failed game loads
 5. **Add loading indicators** - especially for game iframes
+6. **Game Display Rules**:
+   - Featured Games Section: Always display exactly 5 games (random selection)
+   - New Games Section: Always display exactly 5 games (most recent)
+   - Games page (games.html): Display 20-50 games per page with pagination
+7. **API Integration Requirements**:
+   - Hide API token in backend/build process
+   - Download and store thumbnails locally
+   - Cache API responses (1 hour for featured, 30 min for new games)
+   - Handle API errors gracefully with fallback content
+8. **Thumbnail Management**:
+   - Download from API `thumb` field
+   - Save as `/images/games/{slug}-{id}.jpg`
+   - Implement lazy loading for performance
+   - Create placeholder for missing images
+9. **SEO Optimization**:
+   - Generate meta tags for each game page
+   - Use game slug in URLs
+   - Include structured data for games
+10. **Security & Compliance**:
+    - Check game restrictions field
+    - Implement geo-blocking if needed
+    - Never expose API credentials client-side
 
 ## Game Integration:
 - Use placeholder iframes with loading states
 - Include fullscreen toggle functionality
 - Add error handling for failed loads
 - Implement responsive iframe containers
+
+### Game Card Display Elements:
+```javascript
+// Each game card should display:
+{
+  thumbnail: '/images/games/{slug}-{id}.jpg',
+  name: 'Game Name',
+  provider: 'Provider Name',
+  type: 'Slot/Table/etc',
+  link: '/game.html?slug={slug}' or '/games/{slug}'
+}
+```
+
+### Game Page Data:
+```javascript
+// Individual game page should show:
+{
+  iframe: 'https://slotslaunch.com/iframe/{id}?token={token}',
+  name: 'Game Name',
+  provider: 'Provider Name',
+  description: 'Game description...',
+  features: ['Megaways', 'Bonus Buy', etc],
+  gameInfo: {
+    rtp: '96.5%',
+    volatility: 'High',
+    paylines: 20,
+    reels: 5
+  }
+}
+```
+
+### API Response Handling:
+1. **Build-time approach** (Recommended for static sites):
+   - Fetch all game data during build
+   - Generate static JSON files
+   - No client-side API calls needed
+
+2. **Runtime approach** (For dynamic sites):
+   - Create backend proxy endpoints
+   - Cache responses server-side
+   - Serve data to frontend via your API
+
+3. **Hybrid approach**:
+   - Static data for featured/new games
+   - Dynamic loading for full games list
+   - Periodic rebuilds to update content
+
+## Example API Implementation:
+
+### Backend Proxy (Node.js Example):
+```javascript
+// /api/games.js
+app.get('/api/games', async (req, res) => {
+  const response = await fetch('https://slotslaunch.com/api/games?published=1&per_page=150', {
+    headers: {
+      'Authorization': 'Bearer 6neGxBm3O8L6Wy2ZbD0xykkFwtaDi653SH7RanMSLtEPDE1V5f',
+      'Origin': 'spikeup.com'
+    }
+  });
+  const data = await response.json();
+  res.json(data);
+});
+```
+
+### Frontend Implementation:
+```javascript
+// Homepage - Featured Games
+async function loadFeaturedGames() {
+  const response = await fetch('/api/games');
+  const data = await response.json();
+  const games = data.data.filter(g => g.published === 1);
+  const shuffled = games.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 5);
+}
+
+// Homepage - New Games  
+async function loadNewGames() {
+  const response = await fetch('/api/games?order_by=updated_at&order=desc');
+  const data = await response.json();
+  return data.data.slice(0, 5);
+}
+
+// Game Page
+function loadGameIframe(gameId) {
+  const iframe = document.getElementById('game-iframe');
+  iframe.src = `https://slotslaunch.com/iframe/${gameId}?token=6neGxBm3O8L6Wy2ZbD0xykkFwtaDi653SH7RanMSLtEPDE1V5f`;
+}
+```
 
 ## Additional Uniqueness Factors:
 1. **Comment Styles**: <!-- HTML Comments --> vs // JS Comments
