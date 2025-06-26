@@ -1,0 +1,283 @@
+# Social Casino Website Generation Prompt
+
+## Overview
+Generate a unique social casino website with varied layouts, styling approaches, and technical implementations. Each generation should produce a distinctly different website while maintaining professional quality and functionality.
+
+## CSS Framework Options
+Randomly select one:
+- **Tailwind CSS** (via CDN)
+- **Bootstrap 5** 
+- **Bulma**
+- **Foundation**
+- **Materialize CSS**
+- **Pure CSS**
+- **Semantic UI**
+- **UIKit**
+- **Skeleton CSS**
+- **Custom CSS** (no framework)
+
+## Page Templates
+
+### 1. Homepage Template
+
+#### Hero Section Variations:
+1. **Full-screen Background Image**
+   - Overlay text with CTA buttons
+   - Parallax scrolling effect
+   - Video background option
+
+2. **Two-Column Split**
+   - Text/CTA on left, image/carousel on right
+   - Alternating background colors
+   - Animated elements on scroll
+
+3. **Centered Hero**
+   - Large centered title with subtitle
+   - Floating game cards around
+   - Gradient or pattern background
+
+4. **Slider/Carousel Hero**
+   - Multiple slides showcasing different games
+   - Auto-play with manual controls
+   - Different transition effects
+
+5. **Interactive Hero**
+   - Animated casino elements (chips, cards, dice)
+   - Mouse-follow effects
+   - Particle.js background
+
+#### Featured Games Section Variations:
+1. **Card Grid** - Square cards with hover effects
+2. **Carousel Slider** - Horizontal scrolling with arrows
+3. **Masonry Layout** - Pinterest-style varied heights
+4. **List View** - Horizontal rows with game info
+5. **Hexagonal Grid** - Honeycomb pattern layout
+
+#### Navigation Variations:
+1. **Traditional Top Bar** - Logo left, menu right
+2. **Centered Logo** - Split navigation
+3. **Sidebar Navigation** - Collapsible side menu
+4. **Sticky/Fixed Header** - Shrinks on scroll
+5. **Mega Menu** - Dropdown with game categories
+
+### 2. Games Listing Template
+
+#### Layout Variations:
+1. **Grid View** (3, 4, or 5 columns)
+2. **List View** (detailed game info in rows)
+3. **Card Flip** (hover to see details)
+4. **Magazine Style** (mixed sizes)
+5. **Isotope/Masonry** (filterable grid)
+
+#### Filter/Sort Variations:
+1. **Sidebar Filters** - Checkboxes and sliders
+2. **Top Bar Filters** - Dropdown menus
+3. **Tag Cloud** - Clickable category tags
+4. **Tab Navigation** - Category tabs
+5. **Search Bar Focus** - Prominent search with auto-suggest
+
+### 3. Individual Game Template
+
+#### Layout Variations:
+1. **Centered Game** - Game in middle, info below
+2. **Sidebar Info** - Game left, details right
+3. **Tabbed Interface** - Game/Info/Related in tabs
+4. **Fullscreen Focus** - Minimal UI, fullscreen button
+5. **Theater Mode** - Dark background, spotlight on game
+
+### 4. About/Contact Templates
+
+#### Layout Variations:
+1. **Timeline Style** - Company history
+2. **Team Grid** - Photo cards of team
+3. **Split Screen** - Text/Image sections
+4. **Accordion FAQ** - Expandable sections
+5. **Video Background** - About video with overlay
+
+### 5. Legal Pages Template
+
+#### Layout Variations:
+1. **Sidebar TOC** - Sticky table of contents
+2. **Accordion Sections** - Collapsible chapters
+3. **Single Column** - Simple scrolling
+4. **Tab Navigation** - Different policies in tabs
+5. **Floating TOC** - Right-side mini-map
+
+## Uniqueness Strategies
+
+### DOM Structure Variations:
+```html
+<!-- Semantic Version -->
+<header>
+  <nav>
+    <ul>
+      <li><a href="#">Games</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <article>
+    <section class="hero">
+      <h1>Welcome</h1>
+    </section>
+  </article>
+</main>
+
+<!-- Generic Version -->
+<div class="top-bar">
+  <div class="menu-wrapper">
+    <div class="menu-list">
+      <div class="menu-item"><span>Games</span></div>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="hero-area">
+    <div class="title">Welcome</div>
+  </div>
+</div>
+```
+
+### Class/ID Naming Conventions:
+Randomly choose:
+- BEM: `header__navigation--primary`
+- Atomic: `mt-4 px-6 bg-primary`
+- Semantic: `main-navigation top-header`
+- Abbreviated: `hdr-nav-pri`
+- Random prefix: `sc-header-nav` or `casino-nav-top`
+
+### Styling Approaches:
+1. **External Stylesheets** - Link to .css files
+2. **Inline Style Blocks** - `<style>` in HTML
+3. **Inline Styles** - style attributes on elements
+4. **CSS-in-JS** - JavaScript-generated styles
+5. **Mixed Approach** - Combination of above
+
+### Content Variations:
+
+#### Site Names (randomly generate):
+- [Adjective] + [Casino Term] + Casino/Games
+- Examples: "Lucky Spin Casino", "Golden Dice Games", "Royal Flush Casino"
+
+#### Hero Headlines:
+- "Welcome to [Site Name] - Play Free Casino Games!"
+- "Experience the Thrill of Vegas Online"
+- "Your #1 Destination for Social Casino Fun"
+- "Play, Win, Enjoy - No Download Required"
+- "Discover 100+ Free Casino Games"
+
+#### CTA Button Text:
+- "Play Now", "Start Playing", "Join the Fun"
+- "Explore Games", "Browse Collection", "View All Games"
+- "Get Started", "Play for Free", "Try Your Luck"
+
+### Technical Variations:
+
+#### Meta Tags:
+```html
+<!-- Version 1 -->
+<title>SuperSlot Casino – Play Free Games Online</title>
+<meta name="description" content="Play free casino games...">
+
+<!-- Version 2 -->
+<title>Free Casino Games | SuperSlot</title>
+<meta name="description" content="Enjoy 100+ casino games...">
+```
+
+#### Image Handling:
+- Different formats: .jpg, .png, .webp
+- Random filenames: `hero-bg-1.jpg`, `main-banner.png`, `welcome-image.webp`
+- Lazy loading variations
+- Different optimization levels
+
+#### Microdata/Schema:
+```json
+<!-- Gaming Website Schema -->
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Casino Name",
+  "url": "https://example.com"
+}
+
+<!-- Organization Schema -->
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Casino Company"
+}
+```
+
+### Performance Variations:
+- Inline critical CSS vs external
+- Async/defer script loading
+- Different minification approaches
+- Various compression techniques
+
+## Color Scheme Options:
+1. **Vegas Classic** - Red, black, gold
+2. **Modern Neon** - Purple, blue, pink gradients
+3. **Elegant Royal** - Deep purple, gold, cream
+4. **Fresh Digital** - Teal, orange, white
+5. **Dark Mode** - Black, grey, accent colors
+
+## Typography Variations:
+- **Serif Headers**: Georgia, Playfair Display, Merriweather
+- **Sans-serif Body**: Arial, Roboto, Open Sans, Helvetica
+- **Display Fonts**: Impact, Bebas Neue, Oswald
+- **System Fonts**: -apple-system, BlinkMacSystemFont
+
+## Animation/Interaction Patterns:
+1. **Hover Effects**: Scale, rotate, flip, glow
+2. **Scroll Animations**: Fade in, slide, parallax
+3. **Loading States**: Spinners, progress bars, skeleton screens
+4. **Micro-interactions**: Button clicks, form feedback
+5. **Page Transitions**: Fade, slide, custom animations
+
+## Responsive Breakpoints:
+Vary between frameworks or use custom:
+- Mobile: 320px, 375px, 480px
+- Tablet: 768px, 820px, 1024px
+- Desktop: 1280px, 1440px, 1920px
+
+## File Structure Variations:
+```
+<!-- Single Page -->
+index.html (everything in one file)
+
+<!-- Multi-page -->
+/index.html
+/games.html
+/about.html
+/css/styles.css
+/js/main.js
+
+<!-- Component-based -->
+/index.html
+/components/header.html
+/components/footer.html
+/assets/css/
+/assets/js/
+```
+
+## Implementation Notes:
+1. **Always maintain accessibility** - proper ARIA labels, semantic HTML
+2. **Ensure mobile responsiveness** - test all breakpoints
+3. **Optimize performance** - minimize HTTP requests, compress assets
+4. **Include error states** - 404 pages, failed game loads
+5. **Add loading indicators** - especially for game iframes
+
+## Game Integration:
+- Use placeholder iframes with loading states
+- Include fullscreen toggle functionality
+- Add error handling for failed loads
+- Implement responsive iframe containers
+
+## Additional Uniqueness Factors:
+1. **Comment Styles**: <!-- HTML Comments --> vs // JS Comments
+2. **Indentation**: Spaces (2 or 4) vs tabs
+3. **Quote Styles**: Single vs double quotes
+4. **CSS Order**: Alphabetical vs logical grouping
+5. **JavaScript Patterns**: ES6+ vs traditional, different event handling
+
+Generate each site with a unique combination of these elements to ensure no two sites are identical while maintaining professional quality and user experience.
